@@ -5,8 +5,8 @@ module.exports = {
   "inherits": "^2.0.1",
   "console-browserify": "^1.1.0",
   "constants-browserify": "~0.0.1",
-  "react-native-crypto": "mvayngrib/react-native-crypto#92ebb1b",
-  "react-native-randombytes": "^1.0.1",
+  "react-native-crypto": "^2.0.0",
+  "react-native-randombytes": "^2.0.0",
   "dns.js": "^1.0.1",
   "domain-browser": "^1.1.1",
   "events": "^1.0.0",
@@ -27,6 +27,6 @@ module.exports = {
   "tty-browserify": "0.0.0",
   "url": "~0.10.1",
   "util": "~0.10.3",
-  "@tradle/utp": "^0.0.8",
+  "react-native-tcp": "^1.0.1",
   "vm-browserify": "0.0.4"
 }
