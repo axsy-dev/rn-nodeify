@@ -96,7 +96,7 @@ var hackers = [
     }
   },
   {
-    name: 'readable-stream',
+    name: 'readable-stream-stream',
     regex: [
       /readable-stream\/lib\/_stream_(readable|writable)\.js$/,
       /readable-stream\/readable\.js$/
@@ -107,7 +107,17 @@ var hackers = [
         "var Stream = global.StreamModule || require('stream')"
       )
       
-      fixed = contents.replace(
+      return contents === fixed ? null : fixed
+    }
+  },
+  {
+    name: 'readable-stream-util',
+    regex: [
+      /readable-stream\/lib\/_stream_(readable|writable)\.js$/,
+      /readable-stream\/readable\.js$/
+    ],
+    hack: function (file, contents) {
+      var fixed = contents.replace(
         "var debug = require('util');",
         "var debug = require('../../util');"
       )
