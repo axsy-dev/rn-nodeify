@@ -190,7 +190,7 @@ function hackPackageJSONs (modules, keepBrowser, done) {
   var finder = find('./node_modules')
 
   finder.on('file', function (file) {
-    if (!/\/package\.json$/.test(file)) return
+    if (path.basename(file) !== 'package.json') return
 
     fixPackageJSON(modules, keepBrowser, file, true)
   })
@@ -199,7 +199,7 @@ function hackPackageJSONs (modules, keepBrowser, done) {
 }
 
 function fixPackageJSON (modules, keepBrowser, file, overwrite) {
-  if (/\/react\-native\//.test(file)) return
+  if (file.split(path.sep).indexOf('react-native') >= 0) return
 
   fs.readFile(path.resolve(file), { encoding: 'utf8' }, function (err, contents) {
     if (err) throw err
